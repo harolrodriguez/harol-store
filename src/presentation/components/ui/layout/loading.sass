@@ -1,0 +1,54 @@
+.loadingview
+  position: fixed
+  z-index: 100
+  height: 100%
+  width: 100vw
+  top: 0
+  @apply bg-light
+  @apply font-sans
+  @apply transition-opacity
+  @apply md:mr-1.5
+
+  &__loaderbg
+    position: fixed
+    width: 100vw
+    height: 100%
+    top: 0
+    left: 0
+    transform-origin: left
+    @apply bg-dark
+    transition-duration: 2000ms
+
+    &--finish
+      transition-duration: 500ms
+
+  &__bottom-text
+    position: absolute
+    bottom: 0
+    left: 50%
+    transform: translate( -50%,0)
+    transition-duration: 500ms
+    @apply text-xl
+    @apply mix-blend-difference
+
+    @screen md
+      @apply text-2xl
+
+    &--finish
+      transform: translate(-50%, 100%)
+
+  &__percentage-text
+    position: absolute
+    top: 50%
+    left: 50%
+    font-size: 7rem
+    transform: translate(-50%, -50%)
+    transition-duration: 500ms
+    @apply font-mono
+    @apply mix-blend-difference
+
+    @screen md
+      font-size: 12.5rem
+
+    &--finish
+      transform: translate(-50%, -100vh)

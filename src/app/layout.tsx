@@ -1,13 +1,16 @@
-import "@/ui/styles/globals.css";
+import "@/presentation/assets/styles/tailwind.css";
+import "@/presentation/assets/styles/index.sass";
 import { Metadata, Viewport } from "next";
-import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 
 import { Providers } from "./providers";
 
-import { siteConfig } from "@/ui/config/site";
-import { fontSans } from "@/ui/config/fonts";
-import { Navbar } from "@/shared/components/navbar";
+// -- CONFIG
+import { siteConfig } from "@/presentation/config/site";
+import { fontMono, fontSans } from "@/presentation/config/fonts";
+// Fin Config
+// -- LAYOUT
+import MainLayout from "@/presentation/components/ui/layout";
 
 export const metadata: Metadata = {
   title: {
@@ -33,32 +36,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en">
-      <head />
-      <body
-        className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable,
-        )}
-      >
+    <html
+      suppressHydrationWarning
+      className={clsx(fontSans.variable, fontMono.variable)}
+      lang="en"
+    >
+      <body>
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
-            <Navbar />
+          <MainLayout>{children}</MainLayout>
+          {/* <div className="relative flex flex-col h-screen">
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
               {children}
             </main>
-            <footer className="w-full flex items-center justify-center py-3">
-              <Link
-                isExternal
-                className="flex items-center gap-1 text-current"
-                href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
-                title="nextui.org homepage"
-              >
-                <span className="text-default-600">Powered by</span>
-                <p className="text-primary">NextUI</p>
-              </Link>
-            </footer>
-          </div>
+          </div> */}
         </Providers>
       </body>
     </html>

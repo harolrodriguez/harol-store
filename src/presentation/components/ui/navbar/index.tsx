@@ -1,3 +1,4 @@
+"use client";
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -11,6 +12,7 @@ import { Link } from "@nextui-org/link";
 import { link as linkStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
+import { useEffect, useState } from "react";
 
 import { ThemeSwitch } from "./theme-switch";
 import SearchInput from "./search-input";
@@ -41,8 +43,27 @@ const MenuList = () => {
 };
 
 export const Navbar = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // const show = setTimeout(() => {
+      setIsLoading(false);
+    // }, 10);
+
+    return () => {
+      // clearTimeout(show);
+    };
+  }, []);
+
   return (
-    <NextUINavbar maxWidth="full" position="sticky">
+    <NextUINavbar
+      className={"transition-transform duration-1000"}
+      maxWidth="full"
+      position="sticky"
+      style={{
+        transform: isLoading ? "translateY(-100%)" : "none",
+      }}
+    >
       <NavbarContent justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">

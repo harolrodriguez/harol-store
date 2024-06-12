@@ -20,8 +20,8 @@ export default {
 
     light: {
       colors: {
-        background: themeColors.dark,
-        foreground: themeColors.light,
+        background: themeColors.light,
+        foreground: themeColors.dark,
       },
     },
   },

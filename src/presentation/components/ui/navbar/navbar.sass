@@ -1,0 +1,28 @@
+.main-navbar
+  @apply transition-transform
+  transition-duration: 1000ms
+  border-bottom-width: 1px
+  border-style: solid
+  @apply border-dark/10
+  @apply dark:border-light/10
+  // @apply fixed
+
+
+  @screen md
+    // border-bottom: 5px
+    // border-style: inset
+
+  &__brand
+    gap: 0.75rem
+    @apply max-w-fit
+
+  &__brand-logo
+    gap: 0.25rem
+    display: flex
+    font-weight: bold
+    font-size: 1.5rem
+    color: theme('colors.sky.600')
+    // font-family: var(--font-bigmono)
+    @apply font-mono
+    @apply justify-start 
+    @apply items-center

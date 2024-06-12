@@ -7,7 +7,7 @@ import { Providers } from "./providers";
 
 // -- CONFIG
 import { siteConfig } from "@/presentation/config/site";
-import { fontMono, fontSans } from "@/presentation/config/fonts";
+import { fontMono, fontSans, fontBigMono } from "@/presentation/config/fonts";
 // Fin Config
 // -- LAYOUT
 import MainLayout from "@/presentation/components/ui/layout";
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
+    // { media: "(prefers-color-scheme: light)", color: "white" },
+    // { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
 };
 
@@ -38,7 +38,11 @@ export default function RootLayout({
   return (
     <html
       suppressHydrationWarning
-      className={clsx(fontSans.variable, fontMono.variable)}
+      className={clsx(
+        fontSans.variable,
+        fontMono.variable,
+        fontBigMono.variable,
+      )}
       lang="en"
     >
       <body>

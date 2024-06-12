@@ -9,12 +9,14 @@
 		"lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix"
 	},
 	"dependencies": {
+		"@designbycode/tailwindcss-text-stroke": "^1.2.1",
 		"@nextui-org/button": "^2.0.32",
 		"@nextui-org/code": "^2.0.28",
 		"@nextui-org/input": "^2.2.0",
 		"@nextui-org/kbd": "^2.0.29",
 		"@nextui-org/link": "^2.0.30",
 		"@nextui-org/navbar": "^2.0.31",
+		"@nextui-org/react": "^2.4.1",
 		"@nextui-org/snippet": "^2.0.36",
 		"@nextui-org/switch": "^2.0.29",
 		"@nextui-org/system": "2.2.0",
@@ -45,6 +47,7 @@
 		"next-themes": "^0.2.1",
 		"postcss": "8.4.38",
 		"react": "18.3.1",
+		"react-awesome-reveal": "^4.2.11",
 		"react-dom": "18.3.1",
 		"sass": "^1.77.2",
 		"tailwind-merge": "^2.3.0",

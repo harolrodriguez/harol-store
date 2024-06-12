@@ -15,7 +15,7 @@ export function Providers({ children }: ProvidersProps) {
   const router = useRouter();
 
   return (
-    <NextUIProvider navigate={router.push}>
+    <NextUIProvider className="overflow-clip" navigate={router.push}>
       <NextThemesProvider {...themeConf}>{children}</NextThemesProvider>
     </NextUIProvider>
   );

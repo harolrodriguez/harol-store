@@ -1,5 +1,5 @@
 import {nextui} from '@nextui-org/theme'
-import {nextUiTheme, tailwindTheme} from './theme/theme-config'
+import {themeColors, tailwindTheme} from './theme/theme-config'
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -11,9 +11,35 @@ module.exports = {
   theme: tailwindTheme,
   darkMode: "class",
   plugins: [
+    require("@designbycode/tailwindcss-text-stroke"),
     {
       'postcss-import': {}
     },
-    nextui(nextUiTheme),
+    nextui({
+      prefix: "nextui", // prefix for themes variables
+      // addCommonColors: false, // override common colors (e.g. "blue", "green", "pink").
+      defaultTheme: "light", // default theme from the themes object
+      defaultExtendTheme: "light", // default theme to extend on custom themes
+      layout: {
+        radius: {
+          small: "4px"
+        }
+      },
+      themes: {
+        dark: {
+          colors: {
+            background: themeColors.dark,
+            foreground: themeColors.light,
+          }
+        },
+
+        light: {
+          colors: {
+            background: themeColors.light,
+            foreground: themeColors.dark,
+          }
+        }
+      }
+    }),
   ],
 }

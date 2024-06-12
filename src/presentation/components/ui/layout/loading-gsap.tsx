@@ -32,7 +32,7 @@ export function LoadingLayout({ loading, setShow }: any) {
         switch (roundedProgress) {
           case 3:
             setPercent(7);
-            setLoadPercent(90);
+            setLoadPercent(7);
             break;
 
           case 10:
@@ -41,6 +41,7 @@ export function LoadingLayout({ loading, setShow }: any) {
 
           case 22:
             setPercent(43);
+            setLoadPercent(43);
             break;
 
           case 30:
@@ -49,6 +50,7 @@ export function LoadingLayout({ loading, setShow }: any) {
 
           case 50:
             setPercent(61);
+            setLoadPercent(61);
             break;
 
           case 60:
@@ -57,6 +59,7 @@ export function LoadingLayout({ loading, setShow }: any) {
 
           case 73:
             setPercent(92);
+            setLoadPercent(92);
             break;
         }
         if (roundedProgress >= 92 && roundedProgress <= 97)
@@ -95,18 +98,7 @@ export function LoadingLayout({ loading, setShow }: any) {
 
   return (
     <div className="loadingview">
-      <div
-        className={twMerge(
-          clsx(
-            { "loadingview__loaderbg--finish": fullStage },
-            "loadingview__loaderbg",
-          ),
-        )}
-        style={{
-          transform: `scaleX(${loadPercent / 100})`,
-        }}
-      />
-      <div className="relative h-full w-full">
+      <div className="loadingview__content">
         <div
           className={clsx("loadingview__percentage-text", {
             "loadingview__percentage-text--finish": fullStage,
@@ -120,6 +112,36 @@ export function LoadingLayout({ loading, setShow }: any) {
           })}
         >
           <div>© 2024 Portfolio by @harolbytes</div>
+        </div>
+      </div>
+
+      <div
+        className={twMerge(
+          clsx(
+            { "loadingview__loaderbg--finish": fullStage },
+            "loadingview__loaderbg",
+          ),
+        )}
+        style={{
+          // transform: `scaleX(${loadPercent / 100})`,
+          width: `${loadPercent}%`,
+        }}
+      >
+        <div className="loadingview__content loadingview__content--invert">
+          <div
+            className={clsx("loadingview__percentage-text", {
+              "loadingview__percentage-text--finish": fullStage,
+            })}
+          >
+            {percent}%
+          </div>
+          <div
+            className={clsx("loadingview__bottom-text", {
+              "loadingview__bottom-text--finish": fullStage,
+            })}
+          >
+            <div>© 2024 Portfolio by @harolbytes</div>
+          </div>
         </div>
       </div>
     </div>
